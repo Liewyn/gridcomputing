@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-let urlSite = 'http://localhost:5000'
+let urlSite = 'https://grid-computing.herokuapp.com/'
 
 let  users = {}
 let levelBar = 0;
