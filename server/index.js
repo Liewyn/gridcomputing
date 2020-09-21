@@ -4,14 +4,18 @@ const app = express();
 var http = require('http');
 
 var PORT = process.env.PORT || 5000;
+var path = require('path');
 
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(dirname, '../client/build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(dirname, '../client/build/index.html'));
+});
 //Routes
 app.use(require("./routes/main.routes"));
 
-app.use(express.static('client'))
 
 var server = http.createServer(app);
 server.listen(PORT)
