@@ -22,16 +22,31 @@ var usuarios = {}
 
 const socketio = require('socket.io')(server)
 
+var barLevel = 0
+
+
+
 socketio.on('connection',(socket)=>{
     console.log('someone connected: ' + socket.handshake.query.name)
     let name = socket.handshake.query.name
     console.log(socket.handshake.address)
     usuarios[socket.id] = name
-    socket.emit('usuarios',JSON.stringify(usuarios))
+    socketio.emit('usuarios',JSON.stringify(usuarios))
+    socket.on('disconnect',()=>{
+        console.log('someone disconnected')
+        delete usuarios[socket.id]
+        socketio.emit('usuarios',JSON.stringify(usuarios))
+    })
 })
 
-socketio.on('disconnect',(socket)=>{
-    console.log('someone disconnected')
-})
+// socketio.on('disconnect',(socket)=>{
+//     console.log('someone disconnected')
+//     delete usuarios[socket.id]
+// })
 
-
+setInterval(()=>{
+    barLevel += Object.values(usuarios).length;
+    
+    console.log({barLevel})
+    socketio.emit('LEVEL_BAR',JSON.stringify({barLevel}))
+},1000)
