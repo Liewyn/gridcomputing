@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Preguntas from './Preguntas/Preguntas'
+import Login from './Login/login'
 
 
-function App() {
-  return (
-    <div className="App">
-      <Preguntas/>
-    </div>
-  );
+
+class App extends Component {
+
+  
+
+  componentDidMount(){
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Login/>
+      </div>
+    );
+  }
 }
 
 export default App;
