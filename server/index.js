@@ -49,4 +49,4 @@ setInterval(()=>{
     
     console.log({barLevel})
     socketio.emit('LEVEL_BAR',JSON.stringify({barLevel}))
-},1000)
+},300)
