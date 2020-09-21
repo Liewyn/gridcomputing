@@ -10,12 +10,12 @@ var path = require('path');
 app.use(cors());
 app.use(express.json());
 
+//Routes
+app.use(require("./routes/main.routes"));
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-//Routes
-app.use(require("./routes/main.routes"));
 
 
 var server = http.createServer(app);
