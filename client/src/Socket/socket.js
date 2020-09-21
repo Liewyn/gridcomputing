@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-let urlSite = 'http://localhost:8080'
+let urlSite = 'http://localhost:5000'
 
 let  users = {}
 let levelBar = 0;

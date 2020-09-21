@@ -13,13 +13,13 @@ import {getUsers, getLevelBar} from '../Socket/socket'
 // }
 
 
-  
+var MAX_LIMIT = 3000  
 
 export default class Barra extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        barLevel:1,
+        barLevel:0,
       }
       // Chart.defaults.global.responsive = true;
     }
@@ -58,7 +58,7 @@ export default class Barra extends Component {
       return (
         <>
         <div>
-          <h1>Procesos consumidos</h1>
+        {this.state.barLevel >= MAX_LIMIT?(<h1>Proceso completado</h1>):<h1>Procesos consumidos: {this.state.barLevel}</h1>}
 
           {/* Bar chart example */}
           <div className='row' style={{width: '60%',
@@ -70,7 +70,7 @@ export default class Barra extends Component {
                   ticks: {
                     autoSkip: false,
                     min: 0,
-                    max: 1000,
+                    max: MAX_LIMIT,
                   },
                 }]
               },legend:{display:false}}}/>
