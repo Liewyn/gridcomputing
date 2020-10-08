@@ -2,6 +2,10 @@
 
 Example of how a computer network works using node js, react and socket io
 
+# Show here
+
+https://grid-computing.herokuapp.com/
+
 ## Installation
 
 Use the npm i in client and server
