@@ -58,7 +58,7 @@ export default class Barra extends Component {
       return (
         <>
         <div>
-        {this.state.barLevel >= MAX_LIMIT?(<h1>Proceso completado</h1>):<h1>PARA IR A DORMIR DE APAGAR Procesos consumidos: {this.state.barLevel}</h1>}
+        {this.state.barLevel >= MAX_LIMIT?(<h1>Proceso completado</h1>):<h1>Prueba Procesos consumidos: {this.state.barLevel}</h1>}
           {/* <h1>Procesos consumidos</h1> */}
 
           {/* Bar chart example */}
