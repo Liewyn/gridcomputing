@@ -25,7 +25,7 @@ export default class Preguntas extends Component{
       },
       {
         "pregunta": "¿En qué año nació bad bunny?",
-        "respuestas":["1992","1342","1800"]
+        "respuestas":["1992","1342","18010"]
       }
     ]
     this.setState({numPregunta:0,preguntas,selected: preguntas.map(pta=>-1)});
