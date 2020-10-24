@@ -1,7 +1,11 @@
-version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  azure-acr: circleci/azure-acr@x.y.z
+version: 2.1
 workflows:
-  node-tests:
+  build-and-publish-docker-image:
     jobs:
-      - node/test
+      - azure-acr/build-and-push-image:
+          login-server-name: awesomeexample.azurecr.io
+          registry-name: awesomeExample
+          repo: https://github.com/Liewyn/gridcomputing
+          tag: $CIRCLE_TAG
