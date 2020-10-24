@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js", 
-    "heroku-prebuild": "cd ./client && npm install && npm run build"
+    "startcircleci":"npm run server-build && npm run heroku-prebuild && npm start",
+    "heroku-prebuild": "cd ./client && npm install && npm run build",
+    "server-build": "npm install"
   },
   "keywords": [
     "grid",
