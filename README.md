@@ -1,6 +1,6 @@
 # Grid computing
 
-Example of how a computer network works using node js, react and socket io
+Example of how a computer network works using node js, react and socket io additionally with config yml file to perform a continuous integration from CIRCLE CI for deployment in a virtual machine in the cloud of AZURE linux through SSH
 
 # Show here
 
