@@ -10,9 +10,13 @@ jobs:
           fingerprints:
             - "1f:25:77:d5:13:cb:b3:08:72:dd:88:dc:4c:1e:2f:37"
       - run:
+          name: antes
+          command: |
+             echo "Hola mundo"
+      - run:
           name: Deploy Over SSH
           command: |
-             ssh $SSH_USER@$SSH_HOST "cd gridcomputing && git pull && sudo npm run startcircleci"
+             ssh $SSH_USER@$SSH_HOST "cd gridcomputing && git pull && sudo npm run startcircleci"       
              
 
 workflows:
