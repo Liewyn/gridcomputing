@@ -1,7 +1,27 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
+jobs:
+  #build:
+    #...
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "1f:25:77:d5:13:cb:b3:08:72:dd:88:dc:4c:1e:2f:37"
+      - run:
+          name: Deploy Over SSH
+          command: |
+             ssh $SSH_USER@$SSH_HOST "echo Hello > hello.txt"
+
 workflows:
-  node-tests:
+  version: 2
+  build-and-deploy:
     jobs:
-      - node/test
+      #- build
+      - deploy:
+          #requires:
+          #  - build # only deploy once build job has completed
+          filters:
+            branches:
+              only: developer # only deploy on the master branch
