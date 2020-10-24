@@ -4,7 +4,7 @@ var cors = require('cors');
 const app = express();
 var http = require('http');
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 5000;
 var path = require('path');
 
 app.use(cors());
@@ -26,6 +26,7 @@ var usuarios = {}
 const socketio = require('socket.io')(server)
 var barLevel = 0
 
+console.log("entro")
 
 socketio.on('connection',(socket)=>{
     let name = socket.handshake.query.name
