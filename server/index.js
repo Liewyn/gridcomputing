@@ -26,7 +26,7 @@ var usuarios = {}
 const socketio = require('socket.io')(server)
 var barLevel = 0
 
-
+console.log("entro hpta")
 
 socketio.on('connection',(socket)=>{
     let name = socket.handshake.query.name
