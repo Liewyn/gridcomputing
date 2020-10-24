@@ -1,12 +1,7 @@
 version: 2.1
 orbs:
-  azure-acr: circleci/azure-acr@x.y.z
-  # node: circleci/node@3.0.0
+  node: circleci/node@3.0.0
 workflows:
-  build-and-publish-docker-image:
+  node-tests:
     jobs:
-      - azure-acr/build-and-push-image:
-          login-server-name: exampleregistry.azurecr.io
-          registry-name: exampleregistry
-          repo: example-repository
-          tag: $CIRCLE_TAG
+      - node/test
